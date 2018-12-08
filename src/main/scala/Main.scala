@@ -1,7 +1,7 @@
 import cats.{Functor, FunctorFilter, Monad}
 import cats.instances.list
 import cats.implicits._
-import filter.FilterAuxilaries
+import typeclasses.FilterAuxilary
 
 object Main extends App {
   implicit val ffList: FunctorFilter[List] = new FunctorFilter[List] {
@@ -15,5 +15,5 @@ object Main extends App {
     )
   }
 
-  println(FilterAuxilaries[List].filterOff(List(1,2,3,4))('a'))
+  println(FilterAuxilary[List].filterOff(List(1,2,3,4))('a'))
 }
