@@ -11,4 +11,7 @@ import scala.util.Random
 object Main extends App {
   println(List(1,2,3).filterOff(4))
 
+  println(implicitly[Numeric[Double]].random)
+  println(implicitly[Numeric[Int]].random)
+  println(implicitly[Numeric[Float]].random)
 }
