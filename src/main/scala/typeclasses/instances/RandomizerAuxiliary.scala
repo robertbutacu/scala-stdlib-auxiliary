@@ -1,4 +1,4 @@
-package instances
+package typeclasses.instances
 
 import typeclasses.RandomizerAuxiliary
 

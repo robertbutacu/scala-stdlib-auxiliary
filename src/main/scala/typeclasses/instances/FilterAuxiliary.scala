@@ -1,6 +1,6 @@
-package instances
+package typeclasses.instances
 
-import cats.FunctorFilter
+import cats.{Foldable, Functor, FunctorFilter}
 import typeclasses.FilterAuxiliary
 
 import scala.language.higherKinds
