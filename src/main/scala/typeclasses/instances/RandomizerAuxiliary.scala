@@ -28,4 +28,22 @@ object RandomizerAuxiliary {
       randomGenerator.nextFloat()
     }
   }
+
+  implicit def implicitFractionalIntRandomizer: RandomizerAuxiliary[Fractional, Int] = new RandomizerAuxiliary[Fractional, Int] {
+    override def nextRandom: Int = {
+      randomGenerator.nextInt()
+    }
+  }
+
+  implicit def implicitFractionalDoubleRandomizer: RandomizerAuxiliary[Fractional, Double] = new RandomizerAuxiliary[Fractional, Double] {
+    override def nextRandom: Double = {
+      randomGenerator.nextDouble()
+    }
+  }
+
+  implicit def implicitFractionalFloatRandomizer: RandomizerAuxiliary[Fractional, Float] = new RandomizerAuxiliary[Fractional, Float] {
+    override def nextRandom: Float = {
+      randomGenerator.nextFloat()
+    }
+  }
 }

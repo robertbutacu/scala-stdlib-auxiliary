@@ -1,0 +1,5 @@
+package typeclasses
+
+class RandomizerAuxiliarySpec {
+
+}
