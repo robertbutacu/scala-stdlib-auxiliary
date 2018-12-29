@@ -1,8 +1,9 @@
 package typeclasses
 
+import scala.language.higherKinds
 import scala.util.Random
 
-trait RandomizerAuxiliary[A] {
+trait RandomizerAuxiliary[N[_]] {
   def randomGenerator: Random = new Random
-  def nextRandom: A
+  def nextRandom[A]: A
 }

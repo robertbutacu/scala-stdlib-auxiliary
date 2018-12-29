@@ -2,22 +2,12 @@ package typeclasses.instances
 
 import typeclasses.RandomizerAuxiliary
 
+import scala.language.higherKinds
+
 object RandomizerAuxiliary {
-  def apply[A](implicit randomizerAuxiliary: RandomizerAuxiliary[A]): RandomizerAuxiliary[A] = randomizerAuxiliary
+  def apply[N[_]](implicit randomizerAuxiliary: RandomizerAuxiliary[N]): RandomizerAuxiliary[N] = randomizerAuxiliary
 
-  implicit class NumeralRandomizerAuxiliaryImplicit[A](input: A) {
-    def random(implicit randomizerAuxiliary: RandomizerAuxiliary[A]): A = randomizerAuxiliary.nextRandom
-  }
-
-  def implicitDoubleRandomizer: RandomizerAuxiliary[Double] = new RandomizerAuxiliary[Double] {
-    override def nextRandom: Double = randomGenerator.nextDouble()
-  }
-
-  def implicitIntRandomizer: RandomizerAuxiliary[Int] = new RandomizerAuxiliary[Int] {
-    override def nextRandom: Int = randomGenerator.nextInt()
-  }
-
-  def implicitFloatRandomizer: RandomizerAuxiliary[Float] = new RandomizerAuxiliary[Float] {
-    override def nextRandom: Float = randomGenerator.nextFloat()
+  implicit class NumeralRandomizerAuxiliaryImplicit[N[_]](input: N[_]) {
+    def random[A](implicit randomizerAuxiliary: RandomizerAuxiliary[A]): A = randomizerAuxiliary.nextRandom
   }
 }
